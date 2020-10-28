@@ -78,7 +78,7 @@ body {
             border: 2px change-color($white, $alpha: 0.5) solid;
         }
 
-        h3 {
+        h2 {
             font-size: 1em;
         }
         .verification {
@@ -89,7 +89,7 @@ body {
     }
 
     &__content {
-        h2 {
+        h3 {
             margin-bottom: 20px;
             font-size: 1.5em;
             line-height: 1.2;

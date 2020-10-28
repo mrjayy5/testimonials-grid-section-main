@@ -75,7 +75,7 @@ body {
   border: 2px rgba(255, 255, 255, 0.5) solid;
 }
 
-.card__header h3 {
+.card__header h2 {
   font-size: 1em;
 }
 
@@ -84,7 +84,7 @@ body {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.card__content h2 {
+.card__content h3 {
   margin-bottom: 20px;
   font-size: 1.5em;
   line-height: 1.2;
