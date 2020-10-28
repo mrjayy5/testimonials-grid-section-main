@@ -1,0 +1,184 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap");
+
+// Primary Colors
+$moderate-violet: hsl(263, 55%, 52%);
+$grayish-blue: hsl(217, 19%, 35%);
+$blackish-blue: hsl(219, 29%, 14%);
+$white: hsl(0, 0%, 100%);
+
+// Neutral Colors
+$light-gray: hsl(0, 0%, 81%);
+$light-grayish-blue: hsl(210, 46%, 95%);
+
+// Font Family
+$font-family: 'Barlow Semi Condensed', sans-serif;
+$font-size: 13px;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background: $light-grayish-blue;
+    font-family: $font-family;
+    font-size: $font-size;
+    margin: 0;
+}
+
+.container {
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    max-width: 1110px;
+    margin: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    "one one two five"
+    "three four four five";
+    column-gap: 30px;
+    row-gap: 24px;
+}
+
+.card {
+    padding: 25px 35px 25px 30px;
+    border-radius: 8px;
+
+    transition: all ease .4s;
+
+    &__header {
+        margin-bottom: 15px;
+        display: grid;
+        justify-content: start;
+        grid-template-areas:
+        "img name"
+        "img verf";
+
+        img {
+            grid-area: img;
+            margin-right: 15px;
+            border-radius: 50%;
+            height: 30px;
+            border: 2px change-color($white, $alpha: 0.5) solid;
+        }
+
+        h3 {
+            font-size: 1em;
+        }
+        .verification {
+            font-size: 0.9em;
+            color: change-color($white, $alpha: 0.5);
+        }
+
+    }
+
+    &__content {
+        h2 {
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            line-height: 1.2;
+        }
+        p {
+            line-height: 1.4;
+            color: change-color($white, $alpha: 0.7);
+        }
+    }
+
+    // Colors
+    &--violet {
+        background-color: $moderate-violet;
+        color: $white;
+    }
+    &--white {
+        background-color: $white;
+        color: $grayish-blue;
+        box-shadow: 20px 20px 50px 5px hsla(0,0%,0%,.1);
+
+        .card__header {
+            p {
+                color: change-color($grayish-blue, $alpha: 0.5);
+            }
+        }
+        .card__content {
+            p {
+                color: change-color($grayish-blue, $alpha: 0.7);
+            }
+        }
+    }
+    &--grayish-blue {
+        background-color: $grayish-blue;
+        color: $white;
+    }
+    &--blackish-blue {
+        background-color: $blackish-blue;
+        color: $white;
+
+        .card__header {
+            img {
+                border-color: change-color($moderate-violet, $alpha: 0.5);
+            }
+        }
+    }
+
+    // Qoutation
+    &--qoutation {
+        background-image: url('/images/bg-pattern-quotation.svg');
+        background-repeat: no-repeat;
+        background-position: calc(100% - 80px) calc(0% - 0px);
+    }
+
+    // Ordering
+    &:nth-child(1) {
+        grid-area: one;
+    }
+    &:nth-child(2) {
+        grid-area: two;
+    }
+    &:nth-child(3) {
+        grid-area: three;
+    }
+    &:nth-child(4) {
+        grid-area: four;
+    }
+    &:nth-child(5) {
+        grid-area: five;
+    }
+
+    &:hover {
+        transform: translateY(10px);
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 970px) {
+    .wrapper {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas:
+        "one one two "
+        "three four four"
+        "five five five";
+    }
+}
+
+@media (max-width: 700px) {
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+}
